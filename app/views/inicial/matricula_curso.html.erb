@@ -3,15 +3,15 @@
 
 <div class="list-group">
   <a href="#" class="list-group-item">
-    <h4 class="list-group-item-heading">Curso Selecionado: <%= @course.name%></h4>
-    <p class="list-group-item-text">Descrição: <%= @course.description%></p>
-    <p class="list-group-item-text">Status: <%= @course.status == 1 ? 'ATIVO' : 'INATIVO'%></p>
+    <h4 class="list-group-item-heading">Curso Selecionado: <%= @curso.nome%></h4>
+    <p class="list-group-item-text">Descrição: <%= @curso.descricao%></p>
+    <p class="list-group-item-text">Status: <%= @curso.status == 1 ? 'ATIVO' : 'INATIVO'%></p>
   </a>
 </div>
 
-<% unless @students.blank? %>
+<% unless @estudantes.blank? %>
   <div class="panel panel-primary">
-    <div class="panel-heading">Alunos elegíveis...</div>
+    <div class="panel-heading">Estudnates elegíveis...</div>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -23,14 +23,14 @@
         </tr>
       </thead>
       <tbody>
-        <% @students.each.with_index do |s,index| %>
+        <% @estudantes.each.with_index do |s,index| %>
             <tr>
               <th scope="row"><%= index+1 %></th>
-              <td><%= s.name %></td>
-              <td><%= s.register_number %></td>
+              <td><%= s.nome %></td>
+              <td><%= s.num_registro %></td>
               <td><%= s.status == 1 ? 'ATIVO' : 'INATIVO' %></td>
               <td>
-                <%= link_to 'Matricular aluno...', matricula_curso_student_path(@course, s), 
+                <%= link_to 'Matricular aluno...', matricula_curso_estudante_path(@curso, s), 
                      :class => 'btn btn-primary btn-sm active', method: :post %>
               </td>
             </tr>
@@ -59,11 +59,11 @@
         <% @matriculas.each.with_index do |matricula,index| %>
             <tr>
               <th scope="row"><%= index+1 %></th>
-              <td><%= matricula.student.name %></td>
-              <td><%= matricula.course.name %></td>
+              <td><%= matricula.estudante.nome %></td>
+              <td><%= matricula.curso.nome %></td>
               <td><%= matricula.entry_at %></td>
               <td>
-                <%= link_to 'Cancelar matrícula...', matricula_curso_student_cancela_path(matricula.course, matricula.student), 
+                <%= link_to 'Cancelar matrícula...', matricula_curso_estudante_cancela_path(matricula.curso, matricula.estudante),
                      :class => 'btn btn-danger btn-sm active', method: :delete %>
               </td>
             </tr>

@@ -17,18 +17,30 @@ ActiveRecord::Schema.define(version: 20160405173042) do
   enable_extension "plpgsql"
 
   create_table "cursos", force: true do |t|
+    t.string   "nome"
+    t.string   "descricao"
+    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "estudantes", force: true do |t|
+    t.string   "nome"
+    t.string   "num_registro"
+    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "turmas", force: true do |t|
+    t.integer  "estudante_id"
+    t.integer  "curso_id"
+    t.datetime "entry_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "turmas", ["curso_id"], name: "index_turmas_on_curso_id", using: :btree
+  add_index "turmas", ["estudante_id"], name: "index_turmas_on_estudante_id", using: :btree
 
 end

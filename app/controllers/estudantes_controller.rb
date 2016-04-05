@@ -10,6 +10,11 @@ class EstudantesController < ApplicationController
     @estudante = Estudante.new
   end
 
+  def show
+    @estudante = Estudante.find(params[:id])
+    @cursos = @estudante.cursos
+  end
+
   def create
     @estudante = Estudante.new(estudante_params)
     if @estudante.save

@@ -1,4 +1,5 @@
 # encoding:utf-8
+
 class Estudante < ActiveRecord::Base
   has_many :turmas
   has_many :cursos, :through => :turmas

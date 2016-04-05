@@ -17,7 +17,7 @@ class InicialController < ApplicationController
 
 
   def matricular
-    @student = Estudante.find(params[:estudante_id])
+    @estudante = Estudante.find(params[:estudante_id])
 
     unless @curso.estudantes.include? @estudante
       c = Turma.new(estudante: @estudante, curso: @curso, entry_at: Time.now)

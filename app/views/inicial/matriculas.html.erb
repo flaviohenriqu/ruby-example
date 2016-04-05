@@ -1,7 +1,7 @@
-<% provide(:title, 'Matricular Alunos') %>
-<h1>Matricular Alunos</h1>
+<% provide(:title, 'Matricular Estudantes') %>
+<h1>Matricular Estudantes</h1>
 
-<% unless @courses.blank? %>
+<% unless @cursos.blank? %>
   <div class="panel panel-primary">
     <div class="panel-heading">Selecione o Curso...</div>
     <table class="table table-hover">
@@ -15,11 +15,11 @@
         </tr>
       </thead>
       <tbody>
-        <% @courses.each.with_index do |s,index| %>
+        <% @cursos.each.with_index do |s,index| %>
             <tr>
               <th scope="row"><%= index+1 %></th>
-              <td><%= s.name %></td>
-              <td><%= s.description %></td>
+              <td><%= s.nome %></td>
+              <td><%= s.descricao %></td>
               <td><%= s.status == 1 ? 'ATIVO' : 'INATIVO' %></td>
               <td>
                 <%= link_to t('.select', :default => t("helpers.links.select")),
