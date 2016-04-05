@@ -8,7 +8,7 @@ class CursosController < ApplicationController
 
   def show
     @curso = Curso.find(params[:id])
-    @estudantes = curso.estudantes
+    @estudantes = @curso.estudantes
   end
 
   def new

@@ -3,9 +3,21 @@
     <%= link_to "Proficiency Test", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "CRUD Estudante",   estudantes_url %></li>
-        <li><%= link_to "CRUD Cursos",   cursos_url %></li>
-        <li class="active"><%= link_to "Matrículas", matriculas_url %></li>
+        <% if params[:action] == "index" && params[:controller] == "estudantes" %>
+            <li class="active"><%= link_to "CRUD Estudante",   estudantes_url %></li>
+        <% else %>
+            <li><%= link_to "CRUD Estudante",   estudantes_url %></li>
+        <% end %>
+        <% if params[:action] == "index" && params[:controller] == "cursos" %>
+            <li class="active"><%= link_to "CRUD Cursos",   cursos_url %></li>
+        <% else %>
+            <li><%= link_to "CRUD Cursos",   cursos_url %></li>
+        <% end %>
+        <% if params[:action] == "matriculas" && params[:controller] == "inicial" %>
+            <li class="active"><%= link_to "Matrículas", matriculas_url %></li>
+        <% else %>
+            <li><%= link_to "Matrículas", matriculas_url %></li>
+        <% end %>
       </ul>
     </nav>
   </div>

@@ -1,14 +1,14 @@
-<%= simple_form_for @course do |f| %>
+<%= simple_form_for @curso do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :status, collection: [['ATIVO',1], ['INATIVO',2]] %>
+  <%= f.input :nome %>
+  <%= f.input :descricao %>
+  <%= f.input :status, collection: [['ATIVO',1], ['INATIVO',0]] %>
   <%= f.button :submit, class: "btn btn-large btn-primary" %>
 <% end %>
 
 <br clear=all />
 <div class="form-actions">
     <%= link_to t('.back', :default => t("helpers.links.back")),
-    courses_path,
+    cursos_path,
     :class => 'btn btn-primary btn-sm active' %>
 </div>
