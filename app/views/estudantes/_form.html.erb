@@ -1,0 +1,14 @@
+<%= simple_form_for @estudante do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.input :nome %>
+  <%= f.input :num_registro %>
+  <%= f.input :status, collection: [['ATIVO',1], ['INATIVO',0]] %>
+  <%= f.button :submit, class: "btn btn-large btn-primary" %>
+<% end %>
+
+<br clear=all />
+<div class="form-actions">
+    <%= link_to t('.back', :default => t("helpers.links.back")),
+    students_path,
+    :class => 'btn btn-primary btn-sm active' %>
+</div>
