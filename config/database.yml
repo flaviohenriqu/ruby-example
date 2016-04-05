@@ -1,15 +1,17 @@
-development:
+default: &default
   adapter: postgresql
   encoding: unicode
-  database: proficiency-test_development
   pool: 5
-  username: root
-  password: "123"
+  timeout: 5000
+
+production:
+  <<: *default
+  database: proficiency-test_production
+
+development:
+  <<: *default
+  database: proficiency-test_development
 
 test:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: proficiency-test_test
-  pool: 5
-  username: root
-  password: "123"
