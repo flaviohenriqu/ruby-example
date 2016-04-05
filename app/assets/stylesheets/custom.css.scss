@@ -17,13 +17,10 @@ $gray-medium-light: #eaeaea;
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  //color: #fff;
-  //text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    //color: #fff;
     text-decoration: none;
   }
 }
@@ -43,7 +40,6 @@ body {
   text-align: center;
   h1 {
     margin-bottom: 10px;
-    //font-size: 2em;
   }
 }
 
@@ -64,33 +60,6 @@ h1 {
   color: #fff;
 }
 
-
-
-/* footer */
-
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
-  a {
-    color: $gray;
-    &:hover {
-      color: $gray-darker;
-    }
-  }
-  small {
-    float: left;
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
-    }
-  }
-}
 
 /* forms */
 

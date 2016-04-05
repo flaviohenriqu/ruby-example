@@ -3,13 +3,18 @@ Rails.application.routes.draw do
   resources :cursos
   resources :estudantes
 
+  match '/matriculas/:id/estudante/:estudante_id', to: 'inicial#matricular', via: 'post', as: :matricula_curso_estudante
+  match '/matriculas/:id/estudante/:estudante_id', to: 'inicial#matricula_curso', via: 'get'
+  match '/matriculas/:id/estudante/:estudante_id', to: 'inicial#cancelar_matricula', via: 'delete', as: :matricula_curso_estudante_cancela
+  match '/matriculas/:id', to: 'inicial#matricula_curso', via: 'get', as: :matricula_curso
+  match '/matriculas', to: 'inicial#matriculas', via: 'get'
 
   get 'home/index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'initial#index'
+  root 'inicial#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
